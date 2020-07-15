@@ -17,18 +17,20 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from mytunes import views as mytunes_views
+#This last line is helping the files communicate
 
 #First line  urlpatterns given..
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mytunes_views.index, name='home'),
+    # path('mytunes', mytunes_views.list_albums, name='home'),
+    # path('album/add/', mytunes_views.add_albums,name='add_albums')
 ]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
+    # urlpatterns = [
+    #     path('__debug__/', include(debug_toolbar.urls)),
 
-        # For django versions before 2.0:
-        # url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    #     # For django versions before 2.0:
+    #     # url(r'^__debug__/', include(debug_toolbar.urls)),
+    # ] + urlpatterns

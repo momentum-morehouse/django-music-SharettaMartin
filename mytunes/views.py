@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import mytunes
+from .models import Album, Users
 # Create your views here.
-# def add_albums(request, pk):
-#     contact = get_object_or_404(Contact, pk=pk)
-#     if request.method == 'POST':
-#         contact.delete()
-#         return redirect(to='list_contacts')
 
-#     return render(request, "contacts/delete_contact.html",
-#                   {"contact": contact})
+
+def index(request):
+  mymusic = Album.objects.all()
+  return render (request, "mytunes/list_albums.html", context={"mytunes": mymusic})
+
+
+
+
+
+
+
